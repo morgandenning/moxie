@@ -2,6 +2,6 @@
 
 namespace moxie\http\responses;
 
-class json implements \moxie\http\response {
+class jsonp extends \moxie\http\response {
   //
 }

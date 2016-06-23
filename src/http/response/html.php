@@ -2,6 +2,6 @@
 
 namespace moxie\http\responses;
 
-class html implements \moxie\http\response {
+class html extends \moxie\http\response {
   //
 }

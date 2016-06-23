@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+route	Y:\Development\www\moxie\src\routing\route.php	/^class route extends \\moxie\\core\\instantiatable {$/;"	class	line:6
+sPattern	Y:\Development\www\moxie\src\routing\route.php	/^  protected $sPattern;$/;"	variable	line:7
+fCallback	Y:\Development\www\moxie\src\routing\route.php	/^  protected $fCallback;$/;"	variable	line:9
+aParams	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aParams = [];$/;"	variable	line:11
+aParams	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aParams = [];$/;"	variable	line:11
+aParamsParsed	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aParamsParsed = [];$/;"	variable	line:12
+aParamsParsed	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aParamsParsed = [];$/;"	variable	line:12
+aParamsOptionals	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aParamsOptionals = [];$/;"	variable	line:13
+aParamsOptionals	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aParamsOptionals = [];$/;"	variable	line:13
+aRequestMethods	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aRequestMethods = [];$/;"	variable	line:14
+aRequestMethods	Y:\Development\www\moxie\src\routing\route.php	/^  protected $aRequestMethods = [];$/;"	variable	line:14
+__construct	Y:\Development\www\moxie\src\routing\route.php	/^  public function __construct(string $sPattern, $xCallback = null) {$/;"	function	line:16
+xCallback	Y:\Development\www\moxie\src\routing\route.php	/^  public function __construct(string $sPattern, $xCallback = null) {$/;"	variable	line:16
+sPattern	Y:\Development\www\moxie\src\routing\route.php	/^    $this->sPattern = $sPattern;$/;"	variable	line:17
+fCallback	Y:\Development\www\moxie\src\routing\route.php	/^    $this->fCallback = $this->setCallback($xCallback);$/;"	variable	line:18
+via	Y:\Development\www\moxie\src\routing\route.php	/^  public function via(...$aArgs) {$/;"	function	line:24
+aRequestMethods	Y:\Development\www\moxie\src\routing\route.php	/^    $this->aRequestMethods = array_merge($this->aRequestMethods ?? [], $aArgs);$/;"	variable	line:25
+matches	Y:\Development\www\moxie\src\routing\route.php	/^  public function matches(string $sUri) : bool {$/;"	function	line:29
+regex	Y:\Development\www\moxie\src\routing\route.php	/^    $regex = preg_replace_callback('#:([\\w]+)\\+?#', function(array $aMatches) {$/;"	variable	line:30
+getCallback	Y:\Development\www\moxie\src\routing\route.php	/^  public function getCallback() {$/;"	function	line:54
+setCallback	Y:\Development\www\moxie\src\routing\route.php	/^  public function setCallback($xCallback) {$/;"	function	line:57
+xCallback	Y:\Development\www\moxie\src\routing\route.php	/^      $xCallback = function(...$aArgs) use ($aMatches) {$/;"	variable	line:59
+execute	Y:\Development\www\moxie\src\routing\route.php	/^  public function execute() {$/;"	function	line:70
+supportsHttpMethod	Y:\Development\www\moxie\src\routing\route.php	/^  public function supportsHttpMethod(string $sMethod) : bool {$/;"	function	line:75
