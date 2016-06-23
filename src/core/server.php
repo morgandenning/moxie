@@ -27,7 +27,7 @@ class server extends \moxie\core\instantiatable implements \ArrayAccess, \Counta
     return array_key_exists($this->aProps, $sKey);
   }
   public function __unset(string $sKey) : bool {
-    return unset($this->aProps[$sKey]);
+    unset($this->aProps[$sKey]);
   }
 
 
