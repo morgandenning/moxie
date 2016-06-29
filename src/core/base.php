@@ -25,7 +25,7 @@ class base {
   public function __construct(array $aSettings = []) {
     $this->aSystem = new \moxie\storage\basic(['settings' => array_merge($this->aDefaults, $aSettings)]);
 
-    $this->aSystem->instance('oServer', function($x) : \moxie\core\instantiatable {
+    $this->aSystem->instance('oServer', function($x) : \moxie\core\server {
       return \moxie\core\server::instance();
     });
 
