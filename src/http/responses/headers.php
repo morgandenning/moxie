@@ -1,6 +1,6 @@
 <?php
 
-namespace moxie\http\response;
+namespace moxie\http\responses;
 
 class headers extends \moxie\storage\basic {
 

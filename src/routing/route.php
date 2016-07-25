@@ -53,7 +53,7 @@ class route extends \moxie\core\instantiatable {
         return "(?<{$aMatches[1]}>.+)";
       }
 
-      return ("(?<{$aMatches[1]}>" . ($this->aConstraints[$aMatches[1]] ?? '[^/].+') . ')');
+      return ("(?<{$aMatches[1]}>" . ($this->aConstraints[$aMatches[1]] ?? '[^/]+') . ')');
 
     }, preg_replace('#(\)(?!.*\)))#', ')?', $this->sPattern));
 
@@ -71,6 +71,9 @@ class route extends \moxie\core\instantiatable {
     var_dump($this->aParamsOptionals);
 
     foreach ($this->aParamsParsed as $sName) {
+      var_dump("optionalsset");
+      var_dump(isset($this->aParamsOptionals[$sName]));
+      var_dump($this->aParamsOptionals);
       $this->aParams[$sName] = (isset($this->aParamsOptionals[$sName])) ? explode('/', urldecode($aParamValues[$sName] ?? null)) : urldecode($aParamValues[$sName] ?? null);
     }
     return true;
@@ -95,6 +98,9 @@ class route extends \moxie\core\instantiatable {
 
   public function execute() {
     var_dump('execute');
+
+    var_dump($this->aParams);
+
     return !(($this->fCallback)(...array_values($this->aParams)) === false);
   }
 

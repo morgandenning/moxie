@@ -10,7 +10,7 @@ class response {
             $oHeaders;
 
   /** Status Codes **/
-  
+
   protected static $aHttpStatusCodes = [
     //Informational 1xx
     100 => "100 Continue",
@@ -66,7 +66,7 @@ class response {
 
   public function __construct(string $sContent = '', int $iStatus = 200, array $aHeaders = [], string $sContentType = 'text/html') {
     $this->iStatus = $iStatus;
-    ($this->oHeaders = new response\headers(['Content-Type' => $sContentType]))->replace($aHeaders);
+    ($this->oHeaders = new responses\headers(['Content-Type' => $sContentType]))->replace($aHeaders);
     $this->write($sContent);
   }
 

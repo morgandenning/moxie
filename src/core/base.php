@@ -8,19 +8,17 @@ class base {
 
   protected static $oMoxie = null;
 
-  protected $aEvents = [
-              'moxie.prepend' => [[]],
-              'moxie.prepend.router' => [[]],
-              'moxie.prepend.dispatch' => [[]],
-              'moxie.append.dispatch' => [[]],
-              'moxie.append.router' => [[]],
-              'moxie.append' => [[]]
-            ],
-            $aDefaults = [
-              'html.path' => './pub/html',
-              'view.model' => '\moxie\output\view'
+  protected $aDefaults = [
+              'paths' => [
+                'html' => './pub/html',
+                'js' => './pub/js',
+                'css' => './pub/css'
+              ],
+              'namespaces' => [
+                'response' => '\moxie\http\response',
+                'view' => '\moxie\output\view'
+              ]
             ];
-
 
   public function __construct(array $aSettings = []) {
     $this->aSystem = new \moxie\storage\basic(['settings' => array_merge($this->aDefaults, $aSettings)]);
@@ -38,11 +36,12 @@ class base {
     });
 
     $this->aSystem->instance('oResponse', function($x) : \moxie\http\response {
-      return new \moxie\http\response;
+      return (($this->aSystem->settings['namespaces']['response'] instanceof \moxie\output\response) ? $this->aSystem->settings['namespaces']['response'] : (new  $this->aSystem->settings['namespaces']['response']));
+      //return new \moxie\http\response;
     });
 
     $this->aSystem->instance('oView', function($x) : \moxie\output\view {
-      return (($this->aSystem->settings['view.model'] instanceof \moxie\output\view) ? $this->aSystem->settings['view.model'] : new  $this->aSystem->settings['view.model'])->setHtmlPath($this->aSystem->settings['html.path']);
+      return (($this->aSystem->settings['namespaces']['view'] instanceof \moxie\output\view) ? $this->aSystem->settings['namespaces']['view'] : new  $this->aSystem->settings['namespaces']['view'])->setHtmlPath($this->aSystem->settings['namespaces']['view']);
     });
 
 
@@ -104,7 +103,7 @@ class base {
   /** Execute Routes **/
   public function execute() {
     try {
-      \moxie\http\response\headers::start();
+      \moxie\http\responses\headers::start();
 
       $bRouteExecuted = false;
       $aRoutes = $this->oRouter->matches($this->oServer['REQUEST_METHOD'], ($this->oServer['PATH_INFO'] ?? $this->oServer['REQUEST_URI']));
